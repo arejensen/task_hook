@@ -13,7 +13,7 @@ fn main() -> Result<(), Box<dyn error::Error>> {
     
     let current_branch = get_current_branch();
 
-    let task_number_regex = Regex::new(r#"^task/([0-9]+).*$"#)?;
+    let task_number_regex = Regex::new(r#"^(?:task|pbi)/([0-9]+).*$"#)?;
 
     match (current_branch, commit_filename, commit_source) {
         (Ok(branch), Some(filename), None) => {
